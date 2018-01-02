@@ -19,7 +19,7 @@ var sass = require('gulp-sass');
 // 用来编译sass
 gulp.task('aa',function(){
 	// 查找文件位置
-	gulp.src('./src/scss/*.scss') //得到文件流（文件在内存中的状态）
+	gulp.src('./src/sass/*.scss') //得到文件流（文件在内存中的状态）
 
 		.pipe(sass({outputStyle:'expanded'}))	//编译sass文件
 		.pipe(gulp.dest('./src/css/'))			//输出到硬盘
@@ -30,7 +30,7 @@ gulp.task('aa',function(){
 gulp.task('bb',function(){
 	// 监听home.scsss文件
 	// 如果有修改，则执行compileSass任务
-	gulp.watch('./src/scss/*.scss',['aa'])
+	gulp.watch('./src/sass/*.scss',['aa'])
 });
 
 

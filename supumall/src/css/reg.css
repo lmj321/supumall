@@ -1,0 +1,28 @@
+.header {
+  padding: 20px 0px;
+  background: #f2f2f2;
+}
+
+.header .logo {
+  background: url(./img/logo1.jpg) 100%;
+  width: 155px;
+  height: 56px;
+}
+
+.header .hy {
+  width: 140px;
+  height: 53px;
+  padding-left: 30px;
+  margin-top: 10px;
+  margin-left: 35px;
+  font-size: 28px;
+  line-height: 50px;
+  color: #333333;
+  border-left: 1px solid #dbdbdb;
+}
+
+.reg {
+  height: 480px;
+  background-color: #e5004b;
+  background: url(./img/common_big.jpg) center center;
+}
