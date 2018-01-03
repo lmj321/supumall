@@ -13,6 +13,17 @@ require(['config'],function(){
         console.log(str);
         location.href='html/goods.html?'+str;
     }
+    function chuancan(idx,data){
+        var str='';
+        for(var arr in data[idx]){
+            str+=arr+'='+encodeURI(data[idx][arr])+'&';
+        }
+        //去除多余的&
+        str=str.slice(0,-1);
+        // 跳转页面
+        console.log(str);
+        location.href='html/list.html?'+str;
+    }
     $.post('http://localhost:1234/api/goods.php',{sql:"select * from goods"},res=>{
         res=JSON.parse(res);
         let ul=res.map(function(item){
@@ -33,11 +44,11 @@ require(['config'],function(){
         $('.main_list ul').append(ul);
         var List=$('.List img')
         console.log(List)
-         for(let i=0;i<List.length;i++){  
+        for(let i=0;i<List.length;i++){  
             List.get(i).onclick=function(){
                 chuanCan(i,res)
+            }
         }
-    }
     })
      $.post('http://localhost:1234/api/goods.php',{sql:"select * from sale"},res=>{
         res=JSON.parse(res)
@@ -64,8 +75,15 @@ require(['config'],function(){
                             </div>
                         </li>`
             }).join('');
-
+        console.log(ul)
         $('.main_middle ul').append(ul);
+        var Lists=$('.picture>img')
+        console.log(Lists)
+        for(let i=0;i<Lists.length;i++){  
+            Lists.get(i).onclick=function(){
+                chuancan(i,res)
+            }
+        }
     })   
   })
 })

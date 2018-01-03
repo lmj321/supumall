@@ -1,4 +1,4 @@
-(function(){
+jQuery(function($){
     var size = 4;//设置验证码长度
     function GVerify(options) { //创建一个图形验证码对象，接收options对象为参数
         this.options = { //默认options参数值
@@ -135,6 +135,49 @@
         return "rgb(" + r + "," + g + "," + b + ")";
     }
     window.GVerify = GVerify;
-    var yzm=document.querySelector('.yzm')
+   console.log($('.yzm input').get(0).value);
     var verifyCode = new GVerify("YZ");
-})()
+    $('.btn').click(function(){
+        var YZM=verifyCode.options.code.toUpperCase();
+        console.log(YZM);
+        var username = $('.phone input').val();
+        var password =$('.password input').val();
+        console.log($('.phone input').val());
+        if(!/^1[34578]\d{9}$/.test(username)&&!/^[a-z0-9][\w\-\.]{2,}@[a-z0-9\-]+(\.[a-z]{2,})+$/.test(username)){
+         alert('格式错误')
+        return false;
+        }
+        if(!/^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{6,20}$/.test(password)){
+            alert('密码格式错误')
+            return
+        }
+          var yzm =$('.yzm input').val().toUpperCase()
+        console.log(yzm)
+        if(yzm !=YZM){
+   
+        alert('验证码错误')
+        return false
+        }
+        if($('.check input').get().checked){
+            alert('请同意《速普商城用户协议')
+            return
+        }
+
+         $.post('http://localhost:1234/api/reg.php',{username:username,password:password},function(res){
+          console.log(res);
+           if(res==='fail'){
+            alert('手机号已被注册!')
+              return false
+            }
+
+           if(res==='ok'){
+              window.onbeforeunload = function() { 
+                 return "注册成功，是否离开当前页面?";
+               }
+               location.href='login.html'
+              // prompt( "注册成功，是否离开当前页面?")
+           }
+        })
+
+    })
+})

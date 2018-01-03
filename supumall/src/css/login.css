@@ -99,6 +99,10 @@
   color: #666;
 }
 
+.login .reg_form .check .wj {
+  padding-right: 20px;
+}
+
 .login .reg_form .btn {
   padding: 12px 0;
 }
