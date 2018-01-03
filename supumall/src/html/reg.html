@@ -8,8 +8,8 @@
     <body>
     <div class="header">
         <div class="container clearfix">
-            <div class="logo fl">        
-            </div>
+            <a href="http://localhost:1234"><div class="logo fl">        
+            </div></a>
             <div class="hy fl">
                 欢迎注册
             </div>
@@ -17,8 +17,46 @@
     </div>
     <div class="reg">
         <div class="form">
-            
+            <div class="reg_head clearfix">
+                <h3>用户注册</h3>
+                <span>已有账号？<a href="login.html">立即登录</a></span>
+            </div>
+            <div class="reg_form">
+                <div class="phone">
+                    <i></i><input type="text"placeholder="邮箱、手机号"/>
+                </div>
+                <div class="password">
+                    <i></i><input type="text"placeholder="6-16位字符，必须包含英文字母和数字"/>
+                </div>
+                <div class="yzm">
+                    <i></i><input type="text"placeholder="输入验证码"
+                    /><div id="YZ"class="fr"></div>
+                </div>
+                <div class="check">
+                    <input type="checkbox" />
+                    <span>
+                        我已阅读并同意
+                        <a href="">
+                        《速普商城用户协议》
+                        </a>
+                    </span>
+                </div>
+                <div class="btn">
+                    <input type="button"value="注册" />
+                </div>
+            </div>
         </div>
     </div>
+    <div class="footer">
+        <div class="footer_t">
+            Copyright © 速普商城 2010-2016 All Right Reseved 鲁 ICP 证 09059644 号
+        </div>
+        <div class="footer_b">
+            <img src="../img/last1.png" alt="" />
+            <img src="../img/last2.png" alt="" />
+        </div>    
+    </div>
+    <script src="../lib/jquery-3.2.1.min.js"></script>
+    <script src="../js/reg.js"></script>
     </body>
 </html>

@@ -21,14 +21,14 @@
   border-left: 1px solid #dbdbdb;
 }
 
-.reg {
+.login {
   height: 480px;
-  background-color: #e5004b;
+  background-color: #e5004d;
   background: url(./img/common_big.jpg) center center;
   position: relative;
 }
 
-.reg .form {
+.login .form {
   background: #fff;
   width: 340px;
   height: 390px;
@@ -38,12 +38,12 @@
   border: 1px solid #dbdbdb;
 }
 
-.reg .reg_head {
+.login .reg_head {
   margin: 25px 22px 5px 22px;
   background: #FFFFFF;
 }
 
-.reg .reg_head h3 {
+.login .reg_head h3 {
   font-size: 18px;
   color: #686565;
   width: 100px;
@@ -51,26 +51,26 @@
   float: left;
 }
 
-.reg .reg_head span {
+.login .reg_head span {
   float: right;
   font-size: 12px;
   font-weight: normal;
   line-height: 24px;
 }
 
-.reg .reg_form {
+.login .reg_form {
   width: 296px;
   margin: 25px 22px 5px 22px;
   height: 200px;
 }
 
-.reg .reg_form .phone, .reg .reg_form .password, .reg .reg_form .yzm {
+.login .reg_form .phone, .login .reg_form .password, .login .reg_form .yzm {
   width: 296px;
   height: 40px;
   margin: 12px 0;
 }
 
-.reg .reg_form .phone input, .reg .reg_form .password input, .reg .reg_form .yzm input {
+.login .reg_form .phone input, .login .reg_form .password input, .login .reg_form .yzm input {
   display: block;
   height: 40px;
   border: 1px solid #FFFFFF;
@@ -82,32 +82,28 @@
   color: #666;
 }
 
-.reg .reg_form .phone input, .reg .reg_form .password input {
+.login .reg_form .phone input, .login .reg_form .password input {
   width: 231px;
 }
 
-.reg .reg_form .yzm input {
+.login .reg_form .yzm input {
   width: 112px;
 }
 
-.reg .reg_form .yzm #YZ {
+.login .reg_form .yzm #YZ {
   margin-top: 6px;
 }
 
-.reg .reg_form .check {
-  padding: 5px 0;
-}
-
-.reg .reg_form .check span {
+.login .reg_form .check span {
   font-size: 12px;
   color: #666;
 }
 
-.reg .reg_form .btn {
-  padding-top: 6px;
+.login .reg_form .btn {
+  padding: 12px 0;
 }
 
-.reg .reg_form .btn input {
+.login .reg_form .btn input {
   display: block;
   width: 295px;
   background: #e5004b;
@@ -117,6 +113,12 @@
   height: 46px;
   line-height: 46px;
   font-size: 24px;
+}
+
+.login .reg_form .hz {
+  padding-top: 10px;
+  color: #777777;
+  font-size: 12px;
 }
 
 .footer {
