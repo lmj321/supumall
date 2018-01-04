@@ -2,6 +2,8 @@ require(['config'],function(){
   require(['jquery','header_footer','carousel'],function($,home,carousel){
 
     $("#carousel_1").FtCarousel();
+
+    var time_now =document.querySelector('.time_now');
     function chuanCan(idx,data){
         var str='';
         for(var arr in data[idx]){
@@ -73,10 +75,42 @@ require(['config'],function(){
                                     </div>
                                 </div>
                             </div>
+                            <div class="position"></div>
                         </li>`
             }).join('');
-        console.log(ul)
-        $('.main_middle ul').append(ul);
+            $('.main_middle ul').append(ul);
+            var  position =document.querySelectorAll('.position');
+            console.log(position);
+        
+ var end = '2018-9-28 14:49:50';
+        var timer = setInterval(groupBuy,1000);
+            groupBuy()
+            function groupBuy(){
+                // 每秒计算差值,得到秒数
+                var offset = Math.floor((Date.parse(end) - Date.now())/1000);
+
+                // 5）倒计时结束时，处理
+                if(offset<=0){
+                    clearInterval(timer);
+                }
+
+                 secLeft = offset%60;
+                 minLeft = Math.floor(offset/60)%60;
+                 hourLeft = Math.floor(offset/60/60)%24;
+                 day = Math.floor(offset/60/60/24);
+
+                // 补0操作
+                secLeft = (secLeft<10 ? '0' : '') + secLeft;
+                minLeft = (minLeft<10 ? '0' : '') + minLeft;
+                hourLeft = (hourLeft<10 ? '0' : '') + hourLeft;
+
+                // 4）拼接时间格式，写入页面
+                time_now.innerHTML = '距离本场结束还剩'+hourLeft + '时' + minLeft + '分' + secLeft + '秒';
+                for(i=0;i<position.length;i++){
+                    position[i].innerHTML='还有:'+day+'天'+hourLeft + '时' + minLeft + '分' + secLeft + '秒结束'
+                }
+            }
+
         var Lists=$('.picture>img')
         console.log(Lists)
         for(let i=0;i<Lists.length;i++){  
@@ -84,6 +118,20 @@ require(['config'],function(){
                 chuancan(i,res)
             }
         }
-    })   
+    }) 
+      
+
+   
+            // var secLeft;
+            // var minLeft
+            // var hourLeft
+            // var day;
+      
+
+            // 2）不断那当前时间跟结束时间对比，计算差值
+            
+        
+
+  
   })
 })

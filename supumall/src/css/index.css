@@ -394,6 +394,16 @@
   width: 588px;
   float: left;
   margin: 0 0.5% 20px 0.5%;
+  position: relative;
+}
+
+#main .main_middle ul li .position {
+  position: absolute;
+  right: 0;
+  height: 30px;
+  bottom: -22px;
+  width: 200px;
+  font-size: 12px;
 }
 
 #main .main_middle ul li .sale_list {
