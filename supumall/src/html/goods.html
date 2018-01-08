@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="../css/base.css" />
         <link rel="stylesheet" href="../css/common.css" />
         <link rel="stylesheet" href="../css/goods.css" />
+        <link rel="stylesheet" href="../lib/jquery-gdsZoom/jquery.gdsZoom.css" />
     </head>
     <body>
     <div id="Head"></div>
@@ -21,7 +22,17 @@
                     <div class="goods_pic">
                         <img src="" alt=""class="Img" />
                     </div>
-                    <div class="goods_scroll"></div>
+                    <div class="goods_scroll">
+                        <div class="pre"></div>
+                        <div class="smallList">
+                            <img src=""class="Img" data-big="">
+                            <img src="../img/xie12.jpg" alt="">
+                            <img src="../img/xie13.jpg" alt="">
+                            <img src="../img/xie14.jpg" alt="">
+                            <img src="../img/xie15.jpg" alt="">
+                        </div>
+                        <div class="next"></div>
+                    </div>
                 </div>
                 <div class="goods_r fl">
                     <div class="goods_r_t">
@@ -94,7 +105,7 @@
                         <div class="traffic clearfix">
                             <div class="button fl">
                                 <span class="reduce fl">-</span>
-                                <input type="text fl" />
+                                <input type="text"class="qty" />
                                 <span class="add fr">+</span>
                             </div>
                             <div class="to fl">
@@ -119,8 +130,35 @@
             </div>
         </div>
     </div>
+    <div id="flyItem" class="fly_item"><img src="" width="40" height="40"></div>
     <div id="Foot"></div>
-    <div id="Aside"></div>
+       <div id="aside"> 
+            <ul>
+                <li>
+                    <i class="iconfont icon-yanzhengma"></i>
+                    <span> 我的速普 </span>
+                </li>
+                <li>
+                    <i class="iconfont icon-shouji"></i>
+                    <span>   我的收藏  </span>
+                </li>
+                <li class="shoppingCar">
+                    <a href="http://localhost:1234/html/car.html">
+                    <i class="iconfont icon-gouwuche"></i>
+                    <span> 我的购物车</span>
+                    <div class="count"></div>
+                    </a>
+                </li>
+                <li>
+                    <i class="iconfont icon-xiaolian"></i>
+                    <span> 我的速普 </span>
+                </li>
+                <li>
+                    <i class="iconfont icon-arrows-6-1"></i>
+                    <span>返回顶部</span>
+                </li>
+            </ul>  
+        </div>
      <script src="../lib/require.js" defer async="true" data-main="../js/goods"></script>
     </body>
 </html>

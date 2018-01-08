@@ -137,12 +137,15 @@ jQuery(function($){
     window.GVerify = GVerify;
    console.log($('.yzm input').get(0).value);
     var verifyCode = new GVerify("YZ");
+    
     $('.btn').click(function(){
         var YZM=verifyCode.options.code.toUpperCase();
         console.log(YZM);
         var username = $('.phone input').val();
         var password =$('.password input').val();
         console.log($('.phone input').val());
+        
+        
         if(!/^1[34578]\d{9}$/.test(username)&&!/^[a-z0-9][\w\-\.]{2,}@[a-z0-9\-]+(\.[a-z]{2,})+$/.test(username)){
          alert('格式错误')
         return false;
@@ -178,6 +181,6 @@ jQuery(function($){
               // prompt( "注册成功，是否离开当前页面?")
            }
         })
+     })
 
-    })
 })

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 #main {
   background: #F3F3F3;
 }
@@ -19,7 +18,7 @@
 
 #main .goods {
   background-color: #FFF;
-  margin-bottom: 10px;
+  padding-bottom: 10px;
 }
 
 #main .goods .line {
@@ -42,6 +41,45 @@
   margin-top: 10px;
   width: 422px;
   height: 66px;
+  overflow: hidden;
+}
+
+#main .goods .goods_box .goods_scroll .pre {
+  display: block;
+  width: 13px;
+  height: 25px;
+  margin-top: 21px;
+  cursor: pointer;
+  float: left;
+  margin-right: 2px;
+  background: url(./img/index.png) -100px -256px no-repeat;
+}
+
+#main .goods .goods_box .goods_scroll .next {
+  display: block;
+  width: 13px;
+  height: 25px;
+  margin-top: 21px;
+  cursor: pointer;
+  float: right;
+  margin-right: 2px;
+  background: url(./img/index.png) -122px -256px no-repeat;
+}
+
+#main .goods .goods_box .goods_scroll .smallList {
+  float: left;
+  width: 385px;
+  height: 66px;
+  overflow: hidden;
+}
+
+#main .goods .goods_box .goods_scroll .smallList img {
+  float: left;
+  border: 1px solid #e6e6e6;
+  padding: 2px;
+  width: 60px;
+  height: 60px;
+  margin-right: 10px;
 }
 
 #main .goods .goods_r {
@@ -97,7 +135,7 @@
 }
 
 #main .goods .goods_r .goods_price .goods_sale .goods_sale2::before, #main .goods .goods_r .goods_price .goods_sale .goods_sale4::before {
-  content: "￥";
+  content: "$";
 }
 
 #main .goods .goods_r .goods_price .goods_sale .goods_sale4 {
@@ -189,6 +227,8 @@
   background-color: #e5004b;
   color: #FFF;
   margin: 0 20px 0 120px;
+  cursor: pointer;
+  position: relative;
 }
 
 #main .goods .goods_r .join .client {
@@ -198,4 +238,21 @@
   padding: 8px 28px;
   border: 1px solid #e5004b;
   color: #e5004b;
+}
+
+.shoppingCar {
+  position: relative;
+  display: block;
+  left: 0;
+  top: 0px;
+}
+
+.fly_item {
+  border: 1px solid #000;
+  width: 38px;
+  height: 38px;
+  overflow: hidden;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0.5;
 }

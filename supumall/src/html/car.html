@@ -11,7 +11,7 @@
         <div class="top">
             <div class="container clearfix">
                 <div class="header_l fl">
-                    Hi,<a href=""></a>欢迎来到速普商城！[<a href="">退出</a>]
+                    Hi,<a href=""></a>欢迎来到速普商城！[<a href="http://localhost:1234/html/login.html"class="exit">退出</a>]
                 </div>
                 <div class="header_r fr">
                     <ul>
@@ -25,9 +25,10 @@
         </div>
         <div class="middle">
             <div class="container clearfix">
-                <div class="logo fl">
-                    
-                </div>
+                <a href="http://localhost:1234">
+                    <div class="logo fl">      
+                    </div>
+                </a> 
                 <div class="order fr">
                     <ul>
                         <li>
@@ -71,7 +72,76 @@
                     </div>
                 </div>
             </div>
+            <ul class="carList"></ul>
+            <div class="car_bottom">
+                <div class="car_br fr">
+                    <div >已选择
+                        <span></span>
+                        件商品
+                    </div>
+                    <div class="fr">
+                        <div>
+                            商品总额
+                            <span></span>
+                        </div>
+                        <div>
+                            合计金额
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="car_last">
+                <div class="car_d">
+                    <div class="car_f fl">
+                        <span> <input type="checkbox" />全选</span>
+                        <span>删除选中商品</span>
+                        <span>清空购物车</span>
+                    </div>
+                    <div class="count fr">
+                        共<span></span>件商品
+                        <span class="car_t">
+                            总计<span></span>
+                        </span>
+                        <input type="submit"value="去结算>" />
+                    </div>
+                </div>
+            </div>
+            <div class="tab">
+                <ul class="toggle">
+                    <li class="current">猜你喜欢</li>
+                    <li>我的收藏</li>
+                </ul>
+                <div class="tab_list">
+                    <div class="tab_goods">
+                        <div class="pre"></div>
+                        <div>
+                            <div class="group">
+                                <ul></ul>
+                            </div>
+                        </div>
+                        <div class="next"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <div class="footer">
+        <div class="footer_list">
+            <ul>
+                <li>常见问题</li>
+                <li>支付方式</li>
+                <li>配送服务</li>
+                <li>发票制度</li>
+            </ul>
+        </div>
+        <div class="cory">Copyright © 速普商城 2010-2016 All Right Reseved 鲁 ICP 证 09059644 号 </div>
+        <div class="permit">
+            <img src="../img/last1.png" alt="" />
+            <img src="../img/last2.png" alt="" />
+        </div>
+    </div>
+    <script src="../lib/jquery-3.2.1.min.js"></script>
+    <script src="../js/car.js"></script>
     </body>
 </html>

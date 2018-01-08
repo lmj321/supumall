@@ -13,7 +13,7 @@
     }
     .goods{
         background-color: #FFF;
-        margin-bottom: 10px;
+        padding-bottom: 10px;
         .line{
             padding-top:10px;
         }
@@ -32,6 +32,43 @@
                 margin-top: 10px;
                 width: 422px;
                 height:66px;
+                overflow:hidden;
+                .pre{
+                    display: block;
+                    width: 13px;
+                    height: 25px;
+                    margin-top: 21px;
+                    cursor: pointer;
+                    float:left;
+                    margin-right: 2px;
+                    background: url(./img/index.png)
+                    -100px -256px no-repeat;
+                }
+                .next{
+                    display: block;
+                    width: 13px;
+                    height: 25px;
+                    margin-top: 21px;
+                    cursor: pointer;
+                    float:right;
+                    margin-right: 2px;
+                    background: url(./img/index.png)
+                    -122px -256px no-repeat;
+                }
+                .smallList{
+                    float:left;
+                    width: 385px;
+                    height: 66px;
+                    overflow: hidden;
+                }
+                .smallList img{
+                    float:left;
+                    border: 1px solid #e6e6e6;
+                    padding: 2px;
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 10px;
+                }
             }
         }
         .goods_r{
@@ -76,7 +113,7 @@
                         font-weight: bold;
                     }
                     .goods_sale2::before,.goods_sale4::before{
-                        content:"กอ";
+                        content:"$";
                     }
                     .goods_sale4{
                         text-decoration:line-through;
@@ -158,6 +195,8 @@
                         background-color: #e5004b;
                         color: #FFF;
                         margin: 0 20px 0 120px;
+                        cursor:pointer;
+                        position:relative;
                     }
                 }
                 .client{
@@ -171,4 +210,19 @@
             }
         }
     }
+}
+.shoppingCar{
+    position: relative;
+    display: block;
+    left: 0;
+    top: 0px;
+}
+.fly_item {
+    border: 1px solid #000;
+    width: 38px;
+    height: 38px;
+    overflow: hidden;
+    position: absolute;
+    visibility: hidden;
+    opacity:0.5;
 }

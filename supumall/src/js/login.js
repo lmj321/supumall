@@ -15,8 +15,12 @@ jQuery(function($){
                  window.onbeforeunload = function() { 
                  return "登录成功，是否离开当前页面?";
                }
+                sessionStorage.setItem("key", username); 
                location.href='http://localhost:1234'
              }
         })
+
+
     })
+
 })

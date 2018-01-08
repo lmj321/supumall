@@ -77,6 +77,7 @@
 }
 .car{
     background: #f3f3f3;
+    padding-bottom: 70px;
     .carlist{
         .car_top{
             line-height: 32px;
@@ -109,6 +110,268 @@
                 }
 
             }
+        }
+    }
+    .carList{
+        background: #FFFFFF;
+        padding:10px;
+        color:#666;
+        li{
+            background-color: #fffbf0;
+            border-bottom: 1px solid #e9e9e9;
+            padding: 8px 0;
+            overflow:hidden;
+            span{
+                display: inline-block;
+                float:left;
+            }
+            .car1{
+                float:left;
+                vertical-align: middle;
+                display: inline-block;
+                overflow:hidden;
+                input{
+                    float:left;
+                    margin: 45px 14px 0px 26px;
+                }
+                img{
+                    float:left;
+                    width: 100px;
+                    height: 100px;
+                    margin-right: 15px;
+                    overflow: hidden;
+                }
+            }
+            .car2{
+                float:left;
+                width: 320px;
+                height: 48px;
+                display: block;
+                font-size:12px;
+                margin: 36px 36px 0px 40px;
+            }
+            .car3::before,.car5::before{
+                content:"¥";
+            }
+            .car3{
+                padding: 40px 0px 0px 96px;
+            }
+            .car4{
+                float:left;
+                padding: 36px 30px 12px 85px;
+                span{
+                    width: 16px;
+                    height: 23px;
+                    border: 1px solid #dddddd;
+                    background: #f6f6f6;
+                }
+                input{
+                    height: 21px;
+                    width: 34px;
+                    float:left;
+                    text-align: center;
+                }
+            }
+            .car5{
+                width:100px;
+                float:left;
+                    padding: 38px 0px 0px 60px;
+            }
+            .del{
+                width: 55px;
+                float:left;
+                padding: 32px 0px 0px 45px;
+                a{
+                    cursor:pointer;
+                    float:left;
+                }
+            }
+        }
+    }
+    .car_bottom{
+        padding: 10px 35px 10px 20px;
+        background: #FFFFFF;
+        font-size:12px;
+        overflow:hidden;
+        color:#666;
+        span{
+            width: 80px;
+            padding-right: 10px;
+        }
+        .car_br{
+            width: 600px;
+            text-align:right;
+            white-space: nowrap;
+        }
+    }
+    .car_last{
+        margin-top:20px;
+        .car_d{
+            overflow:hidden;
+            background-color: #FFFFFF;
+            padding: 4px 4px 4px 12px;
+            line-height: 32px;
+            .car_f{
+                span{
+                    font-size:12px;
+                    color:#666;
+                }
+            }
+        }
+        .count{
+            width: 740px;
+            font-size: 18px;
+            color: #000000;
+            font-weight: bold;
+            text-align:right;
+            white-space: nowrap;
+            .car_t{
+                span{
+                margin-right: 30px;
+                }
+            }
+            span{
+                
+            }
+            input{
+                font-size: 18px;
+                color: #FFF;
+                background-color: #e5004b;
+                padding: 4px 30px;
+                border: none;
+                cursor: pointer;
+            }
+        }
+    }
+    .tab{
+        margin-top: 40px; 
+        .toggle{
+            height: 36px;
+            line-height: 36px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            .current{
+                color: #e5004b;
+                background-color: #FFF;
+                font-weight: bold;
+            }
+            li{
+                font-size: 14px;
+                background: #eaeaea;
+                float:left;
+                padding: 0 20px;
+                margin-right: 1px;
+                cursor: pointer;
+                white-space: nowrap;
+            }
+        }
+        .tab_list{
+            background-color: #FFF;
+            position: relative;
+            z-index: 1;
+            .tab_goods{
+                position: relative;
+                width: 1140px;
+                height: 189px;
+                    padding: 10px 15px 0px 30px;
+                overflow: hidden;
+                .pre{
+                    width: 18px;
+                    height: 36px;
+                    position: absolute;
+                    top: 35%;
+                    left:10px;
+                    cursor: pointer;
+                    z-index: 100;
+                    background:url(./img/index.png)
+                    -100px -195px no-repeat;
+                }
+                .group{
+                    position: absolute;
+                    left: 0;
+                    ul{
+                        li{
+                            span{
+                                font-size:12px;
+                                padding-top:10px;
+                            }
+                            float:left;
+                            margin-left: 30px;
+                            .xi{
+                                img{
+                                    margin: auto;
+                                }
+                                width: 160px;
+                                margin: 0 auto;
+                                text-align: center;
+                                border: 1px solid #FFF;
+                                margin: 10px auto;
+                                .content{
+                                    width: 100%;
+                                    max-height: 40px;
+                                    line-height: 20px;
+                                    overflow: hidden;
+                                }
+                                .price::before{
+                                    content:"¥";
+                                }
+                                .price{
+                                    color: #e5004b;
+                                    font-weight: bold;
+                                    display:block;
+                                }
+                            }
+                        }
+                    }
+                }
+                .next{
+                    width: 18px;
+                    height: 36px;
+                    position: absolute;
+                    top: 36%;
+                    cursor: pointer;
+                    z-index: 100;
+                    right: 10px;
+                    background: url(./img/index.png) 
+                    -100px -158px no-repeat;
+                }
+            }
+        }
+    }
+}
+.footer{
+    border-top: 1px solid #e5e5e5;
+    background: #F3F3F3;
+    text-align: center;
+    padding-bottom: 10px;
+    .footer_list{
+        width: 280px;
+        margin: 0 auto;
+        padding: 10px 0px;
+        ul{ 
+            overflow:hidden;
+            li{
+                float:left;
+                border-right: 1px solid #999;
+                padding: 0px 10px;
+                font-size:12px;
+            }
+            li:last-child{
+                border-right:0;
+            }
+        }
+    }
+    .cory{
+        padding-top: 2px;
+        padding-bottom: 26px;
+        color: #9C9C9C;
+        font-size:12px;
+        color:#666;
+    }
+    .permit{
+        img{
+            display:inline;
         }
     }
 }

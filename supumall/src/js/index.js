@@ -1,6 +1,11 @@
 require(['config'],function(){
-  require(['jquery','header_footer','carousel'],function($,home,carousel){
+  require(['jquery','header_footer','carousel'],function($,head_foot,carousel){
 
+    // $('#Head').load('../html/header_footer.html #header');
+   
+    // $('#Foot').load('../html/header_footer.html #footer');
+    
+    // $('#Aside').load('../html/header_footer.html #aside');
     $("#carousel_1").FtCarousel();
 
     var time_now =document.querySelector('.time_now');
@@ -52,6 +57,10 @@ require(['config'],function(){
             }
         }
     })
+    // var username= aaaa;
+    // sessionStorage.setItem("key", 'username'); 
+    // localStorage.setItem("site", "js8.in");
+
      $.post('http://localhost:1234/api/goods.php',{sql:"select * from sale"},res=>{
         res=JSON.parse(res)
         console.log(res);
@@ -119,19 +128,7 @@ require(['config'],function(){
             }
         }
     }) 
-      
 
-   
-            // var secLeft;
-            // var minLeft
-            // var hourLeft
-            // var day;
-      
-
-            // 2）不断那当前时间跟结束时间对比，计算差值
             
-        
-
-  
   })
 })

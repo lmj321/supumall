@@ -1,5 +1,5 @@
 require(['config'],function(){
-  require(['jquery','header_footer','blowup'],function($,home,blowup){
+  require(['jquery','header_footer','gdsZoom','parabola','gdsZoom'],function($,home,gdsZoom,parabola,gdsZoom){
     var res=location.search;
     res=res.slice(1);
     res=res.split('&');
@@ -13,7 +13,10 @@ require(['config'],function(){
     })
         console.log(date);
         $('.describe').html(date.describe);
-        $('img').get(0).src=date.imgurl;
+        $('.Img').get(0).src=$('.Img').get(1).src=date.imgurl;
+        $('.Img').get(0).setAttribute("data-big",date.imgurl);
+        
+        $('#flyItem img').get(0).src=date.imgurl;
         $('.goods_r_m1').html(date.news);
         $('.goods_r_m3').html(date.describe);
         $('.goods_sale2').html(date.price);
@@ -22,107 +25,91 @@ require(['config'],function(){
         console.log(now_price)
         $('.save').html(now_price.toFixed(1));
 
-
-  $.fn.blowup = function (attributes) {
-
-    var $element = this;
-
-    // If the target element is not an image
-    if (!$element.is("img")) {
-      console.log("%c Blowup.js Error: " + "%cTarget element is not an image.", 
-        "background: #FCEBB6; color: #F07818; font-size: 17px; font-weight: bold;",
-        "background: #FCEBB6; color: #F07818; font-size: 17px;");
-      return;
-    }
-
-    // Constants
-    var $IMAGE_URL    = $element.attr("src");
-    var $IMAGE_WIDTH  = $element.width();
-    var $IMAGE_HEIGHT = $element.height();
-    var NATIVE_IMG    = new Image();
-    NATIVE_IMG.src    = $element.attr("src");
-
-    // Default attributes
-    var defaults = {
-      round      : true,
-      width      : 300,
-      height     : 300,
-      background : "#FFF",
-      shadow     : "0 8px 17px 0 rgba(0, 0, 0, 0.2)",
-      border     : "3px solid #FFF",
-      cursor     : true,
-      zIndex     : 999999
-    }
-
-    // Update defaults with custom attributes
-    var $options = $.extend(defaults, attributes);
-
-    // Modify target image
-    $element.on('dragstart', function (e) { e.preventDefault(); });
-    $element.css("cursor", $options.cursor ? "crosshair" : "none");
-
-    // Create magnification lens element
-    var lens = document.createElement("div");
-    lens.id = "BlowupLens";
-
-    // Attack the element to the body
-    $("body").append(lens);
-
-    // Updates styles
-    $blowupLens = $("#BlowupLens");
-
-    $blowupLens.css({
-      "position"          : "absolute",
-      "visibility"        : "hidden",
-      "pointer-events"    : "none",
-      "zIndex"            : $options.zIndex,
-      "width"             : $options.width,
-      "height"            : $options.height,
-      "border"            : $options.border,
-      "background"        : $options.background,
-      "border-radius"     : $options.round ? "50%" : "none",
-      "box-shadow"        : $options.shadow,
-      "background-repeat" : "no-repeat",
+$('.goods_pic').gdsZoom();
+$('.smallList img').click(function(){
+        $('.Img').attr({
+          'src':this.src,
+          'data-big':$(this).attr('data-big') || this.src
     });
+  })
 
-    // Show magnification lens
-    $element.mouseenter(function () {
-      $blowupLens.css("visibility", "visible");
-    })
-
-    // Mouse motion on image
-    $element.mousemove(function (e) {
-
-      // Lens position coordinates
-      var lensX = e.pageX - $options.width / 2;
-      var lensY = e.pageY - $options.height / 2;
-
-      // Relative coordinates of image
-      var relX = e.pageX - this.offsetLeft;
-      var relY = e.pageY - this.offsetTop;
-     
-      // Zoomed image coordinates 
-      var zoomX = -Math.floor(relX / $element.width() * NATIVE_IMG.width - $options.width / 2);
-      var zoomY = -Math.floor(relY / $element.height() * NATIVE_IMG.height - $options.height / 2);
-
-      // Apply styles to lens
-      $blowupLens.css({
-        left                  : lensX,
-        top                   : lensY,
-        "background-image"    : "url(" + $IMAGE_URL + ")",
-        "background-position" : zoomX + " " + zoomY
-      });
-
-    })
-
-    // Hide magnification lens
-    $element.mouseleave(function () {
-      $blowupLens.css("visibility", "hidden");
-    })
-
+var eleFlyElement = document.querySelector("#flyItem"), 
+ eleShopCart = document.querySelector(".shoppingCar");
+var numberItem = 0;
+// 抛物线运动
+var myParabola = funParabola(eleFlyElement, eleShopCart, {
+  speed: 400, //抛物线速度
+  curvature: 0.0008, //控制抛物线弧度
+  complete: function() {
+    eleFlyElement.style.visibility = "hidden";
+    eleShopCart.querySelector("span").innerHTML = ++numberItem;
   }
-        $('.Img').blowup({
-             background : "#ccc"
-            });
+});
+
+var qty =document.querySelector('.qty')
+
+qty.value=1;
+$('.reduce').click(function(){
+    if(qty.value<=1){
+        return
+    }else{
+        qty.value--;
+    }
+
+})
+$('.add').click(function(){
+    console.log(555)
+    qty.value++;
+})
+console.log( qty.value)
+var username = sessionStorage.getItem("key"); 
+var imgurl= $('.Img').get(0).src;
+console.log(imgurl)
+var content=$('.goods_r_m3').text();
+var price=$('.goods_sale2').text()
+var sales=$('.goods_sale4').text()
+
+// 绑定点击事
+if (eleFlyElement && eleShopCart) {
+  console.log(666)
+  $('.Bag').click(function(event) {
+      // 滚动大小
+      var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+          scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;
+      eleFlyElement.style.left = event.clientX + scrollLeft + "px";
+      eleFlyElement.style.top = event.clientY + scrollTop + "px";
+      eleFlyElement.style.visibility = "visible";
+      
+      // 需要重定位
+      myParabola.position().move(); 
+      if(username==null){
+        alert('你还未登录，请登录')
+         location.href='login.html'
+      }else{
+        $.post('../api/carinser.php',{
+            imgurl:imgurl,content:content,username:username,price:price,sales:sales,qty:qty.value
+        },function(res){
+            console.log(res)
+        })
+      }
+
+    });
+  }
+
+
+//     var site = localStorage.getItem("site");
+ console.log(username);
+   
+    if(username!=null){
+         var tel = username.substr(0, 3) + '*****' + username.substr(8);  
+       $('.head_l').html(
+        'Hi<a>'+tel+'</a>欢迎来到速普商城！<a href="index.html"class="exit">[退出]</a>'
+        )
+    }
+    $('.exit').click(function(){
+        sessionStorage.removeItem("key");
+
+    })
+
     })
 })

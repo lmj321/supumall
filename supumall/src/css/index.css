@@ -67,7 +67,7 @@
 .head_middle .btn {
   background-color: #e5004a;
   font-size: 16px;
-  color: #FFF;
+  color: #FFFFFF;
   border: 0;
   height: 40px;
   width: 99px;
@@ -133,6 +133,11 @@
 .head_nav .classify ul li {
   width: 210px;
   height: 43px;
+}
+
+.head_nav .classify ul li span {
+  color: #fff;
+  padding-left: 100px;
 }
 
 .head_nav .classify ul .bottom {
@@ -359,23 +364,23 @@
 }
 
 #main .main_list .btn_l {
-  background: url(./img/bth.png)-10px no-repeat;
+  background: url(./img/index.png) -100px -195px no-repeat;
   width: 18px;
   height: 36px;
   position: absolute;
-  top: 50%;
+  top: 36%;
   cursor: pointer;
-  left: 0;
+  left: 10px;
 }
 
 #main .main_list .btn_r {
-  background: url(./img/bth.png)-56px no-repeat;
+  background: url(./img/index.png) -100px -158px no-repeat;
   width: 18px;
   height: 36px;
   position: absolute;
-  top: 50%;
-  right: 40px;
+  top: 36%;
   cursor: pointer;
+  right: 40px;
 }
 
 #main .main_top .main_tt {
@@ -745,4 +750,44 @@
   top: 0;
   z-index: 10000;
   width: 35px;
+}
+
+#aside ul {
+  margin-top: 100px;
+}
+
+#aside ul li:last-child {
+  padding: 160px 0;
+}
+
+#aside ul li {
+  position: relative;
+  display: block;
+  margin: 10px 0;
+  z-index: 999;
+}
+
+#aside ul li i {
+  display: block;
+  color: #FFFFFF;
+  padding: 7px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#aside ul li span {
+  position: absolute;
+  top: 0;
+  left: 60px;
+  font-size: 15px;
+  height: 34px;
+  line-height: 34px;
+  display: block;
+  color: #FFFFFF;
+  background: #9381f4;
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
 }
