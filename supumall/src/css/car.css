@@ -169,7 +169,7 @@
 }
 
 .car .carList li .car3::before, .car .carList li .car5::before {
-  content: "¥";
+  content: "¡Í";
 }
 
 .car .carList li .car3 {
@@ -186,6 +186,7 @@
   height: 23px;
   border: 1px solid #dddddd;
   background: #f6f6f6;
+  text-align: center;
 }
 
 .car .carList li .car4 input {
@@ -204,7 +205,7 @@
 .car .carList li .del {
   width: 55px;
   float: left;
-  padding: 32px 0px 0px 45px;
+  padding: 38px 0px 0px 32px;
 }
 
 .car .carList li .del a {
@@ -229,6 +230,16 @@
   width: 600px;
   text-align: right;
   white-space: nowrap;
+}
+
+.car .car_bottom .car_br .Total {
+  color: #e5004b;
+  font-weight: bold;
+  padding-left: 30px;
+}
+
+.car .car_bottom .car_br .Total::before {
+  content: "¡Í";
 }
 
 .car .car_last {
@@ -256,8 +267,18 @@
   white-space: nowrap;
 }
 
+.car .car_last .count .counts, .car .car_last .count .Total {
+  color: #e5004b;
+  font-weight: bold;
+}
+
+.car .car_last .count .Total::before {
+  content: "￥";
+}
+
 .car .car_last .count .car_t span {
   margin-right: 30px;
+  padding-left: 30px;
 }
 
 .car .car_last .count input {
@@ -357,7 +378,7 @@
 }
 
 .car .tab .tab_list .tab_goods .group ul li .xi .price::before {
-  content: "¥";
+  content: "¡Í";
 }
 
 .car .tab .tab_list .tab_goods .group ul li .xi .price {

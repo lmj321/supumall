@@ -151,7 +151,7 @@
                 margin: 36px 36px 0px 40px;
             }
             .car3::before,.car5::before{
-                content:"¥";
+                content:"¡Í";
             }
             .car3{
                 padding: 40px 0px 0px 96px;
@@ -164,6 +164,7 @@
                     height: 23px;
                     border: 1px solid #dddddd;
                     background: #f6f6f6;
+                    text-align: center;
                 }
                 input{
                     height: 21px;
@@ -180,7 +181,7 @@
             .del{
                 width: 55px;
                 float:left;
-                padding: 32px 0px 0px 45px;
+                padding: 38px 0px 0px 32px;
                 a{
                     cursor:pointer;
                     float:left;
@@ -202,6 +203,14 @@
             width: 600px;
             text-align:right;
             white-space: nowrap;
+            .Total{
+                color: #e5004b;
+                font-weight: bold;
+                padding-left:30px;
+            }
+            .Total::before{
+                content:"¡Í";
+            }
         }
     }
     .car_last{
@@ -225,9 +234,17 @@
             font-weight: bold;
             text-align:right;
             white-space: nowrap;
+            .counts,.Total{
+                color: #e5004b;
+                font-weight: bold;
+            }
+           .Total::before{
+                content:"￥";
+            }
             .car_t{
                 span{
                 margin-right: 30px;
+                padding-left:30px;
                 }
             }
             span{
@@ -314,7 +331,7 @@
                                     overflow: hidden;
                                 }
                                 .price::before{
-                                    content:"¥";
+                                    content:"¡Í";
                                 }
                                 .price{
                                     color: #e5004b;

@@ -216,6 +216,21 @@
     display: block;
     left: 0;
     top: 0px;
+    .count{
+        display: inline-block;
+        height: 18px;
+        width: 18px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 18px;
+        font-size: 12px;
+        background: #FFFFFF;
+        color: #e5004b;
+        /* border: 1px solid #9381f4; */
+        position: absolute;
+        top: -3px;
+        right: 2px;
+    }
 }
 .fly_item {
     border: 1px solid #000;

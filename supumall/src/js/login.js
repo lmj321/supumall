@@ -19,8 +19,6 @@ jQuery(function($){
                location.href='http://localhost:1234'
              }
         })
-
-
     })
 
 })

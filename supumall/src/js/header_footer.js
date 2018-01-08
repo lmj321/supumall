@@ -2,9 +2,9 @@ require(['jquery'],function($){
 
         $('#Head').load('../html/header_footer.html #header',function(){
 
-               var username = sessionStorage.getItem("key"); 
+            var username = sessionStorage.getItem("key"); 
             //     var site = localStorage.getItem("site");
-             console.log(username);
+            console.log(username);
        
         if(username!=null){
              var tel = username.substr(0, 3) + '*****' + username.substr(8);  
@@ -25,14 +25,12 @@ require(['jquery'],function($){
 
                 sessionStorage.setItem("key1", result);
                 location.href='http://localhost:1234/html/list.html'  
+                })
             })
-        })
-    });
+        });
    
-            $('#Foot').load('../html/header_footer.html #footer');
+        $('#Foot').load('../html/header_footer.html #footer');
     
         $('#Aside').load('../html/header_footer.html #aside');
-
-
 
 });

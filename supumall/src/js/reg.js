@@ -1,4 +1,5 @@
 jQuery(function($){
+
     var size = 4;//设置验证码长度
     function GVerify(options) { //创建一个图形验证码对象，接收options对象为参数
         this.options = { //默认options参数值
@@ -135,7 +136,7 @@ jQuery(function($){
         return "rgb(" + r + "," + g + "," + b + ")";
     }
     window.GVerify = GVerify;
-   console.log($('.yzm input').get(0).value);
+    console.log($('.yzm input').get(0).value);
     var verifyCode = new GVerify("YZ");
     
     $('.btn').click(function(){
@@ -166,21 +167,20 @@ jQuery(function($){
             return
         }
 
-         $.post('http://localhost:1234/api/reg.php',{username:username,password:password},function(res){
-          console.log(res);
+        $.post('http://localhost:1234/api/reg.php',{username:username,password:password},function(res){
+            console.log(res);
            if(res==='fail'){
             alert('手机号已被注册!')
               return false
             }
 
            if(res==='ok'){
-              window.onbeforeunload = function() { 
+                window.onbeforeunload = function() { 
                  return "注册成功，是否离开当前页面?";
                }
                location.href='login.html'
               // prompt( "注册成功，是否离开当前页面?")
            }
         })
-     })
-
+    })
 })

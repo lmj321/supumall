@@ -1,5 +1,6 @@
 require(['config'],function(){
   require(['jquery','header_footer','gdsZoom','parabola','gdsZoom'],function($,home,gdsZoom,parabola,gdsZoom){
+
     var res=location.search;
     res=res.slice(1);
     res=res.split('&');
@@ -25,81 +26,102 @@ require(['config'],function(){
         console.log(now_price)
         $('.save').html(now_price.toFixed(1));
 
-$('.goods_pic').gdsZoom();
-$('.smallList img').click(function(){
-        $('.Img').attr({
-          'src':this.src,
-          'data-big':$(this).attr('data-big') || this.src
+    $('.goods_pic').gdsZoom();
+    $('.smallList img').click(function(){
+            $('.Img').attr({
+              'src':this.src,
+              'data-big':$(this).attr('data-big') || this.src
+        });
+      })
+
+
+    var car = sessionStorage.getItem("car");
+   console.log(car)
+   $('.count').text(car)
+
+    var eleFlyElement = document.querySelector("#flyItem"), 
+     eleShopCart = document.querySelector(".shoppingCar");
+    var numberItem = 0;
+    // 抛物线运动
+    var myParabola = funParabola(eleFlyElement, eleShopCart, {
+      speed: 400, //抛物线速度
+      curvature: 0.0008, //控制抛物线弧度
+      complete: function() {
+        eleFlyElement.style.visibility = "hidden";
+        eleShopCart.querySelector("span").innerHTML = ++numberItem;
+      }
     });
-  })
 
-var eleFlyElement = document.querySelector("#flyItem"), 
- eleShopCart = document.querySelector(".shoppingCar");
-var numberItem = 0;
-// 抛物线运动
-var myParabola = funParabola(eleFlyElement, eleShopCart, {
-  speed: 400, //抛物线速度
-  curvature: 0.0008, //控制抛物线弧度
-  complete: function() {
-    eleFlyElement.style.visibility = "hidden";
-    eleShopCart.querySelector("span").innerHTML = ++numberItem;
-  }
-});
+    var qty =document.querySelector('.qty')
 
-var qty =document.querySelector('.qty')
+    qty.value=1;
+    $('.reduce').click(function(){
+        if(qty.value<=1){
+            return
+        }else{
+            qty.value--;
+        }
 
-qty.value=1;
-$('.reduce').click(function(){
-    if(qty.value<=1){
-        return
-    }else{
-        qty.value--;
-    }
+    })
+    $('.add').click(function(){
+        qty.value++;
+    })
+    
+    var username = sessionStorage.getItem("key"); 
+    var imgurl= $('.Img').get(0).src;
+    console.log(imgurl)
+    var content=$('.goods_r_m3').text();
+    var price=$('.goods_sale2').text()
+    var sales=$('.goods_sale4').text()
 
-})
-$('.add').click(function(){
-    console.log(555)
-    qty.value++;
-})
-console.log( qty.value)
-var username = sessionStorage.getItem("key"); 
-var imgurl= $('.Img').get(0).src;
-console.log(imgurl)
-var content=$('.goods_r_m3').text();
-var price=$('.goods_sale2').text()
-var sales=$('.goods_sale4').text()
+    // 绑定点击事
+    if (eleFlyElement && eleShopCart) {
 
-// 绑定点击事
-if (eleFlyElement && eleShopCart) {
-  console.log(666)
-  $('.Bag').click(function(event) {
-      // 滚动大小
-      var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft || 0,
-          scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;
-      eleFlyElement.style.left = event.clientX + scrollLeft + "px";
-      eleFlyElement.style.top = event.clientY + scrollTop + "px";
-      eleFlyElement.style.visibility = "visible";
-      
-      // 需要重定位
-      myParabola.position().move(); 
-      if(username==null){
-        alert('你还未登录，请登录')
-         location.href='login.html'
-      }else{
-        $.post('../api/carinser.php',{
-            imgurl:imgurl,content:content,username:username,price:price,sales:sales,qty:qty.value
-        },function(res){
-            console.log(res)
-        })
+      $('.Bag').click(function(event) {
+          // 滚动大小
+
+
+          var scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft || 0,
+              scrollTop = document.documentElement.scrollTop || document.body.scrollTop || 0;
+          eleFlyElement.style.left = event.clientX + scrollLeft + "px";
+          eleFlyElement.style.top = event.clientY + scrollTop + "px";
+          eleFlyElement.style.visibility = "visible";
+          
+          // 需要重定位
+          myParabola.position().move(); 
+          if(username==null){
+            alert('你还未登录，请登录')
+             location.href='login.html'
+          }else{
+            $.post('../api/carinser.php',{
+                imgurl:imgurl,content:content,username:username,price:price,sales:sales,qty:qty.value
+            },function(res){
+                $.ajax({
+                        type:'POST',
+                        url:'../api/goods.php',
+                        data:{sql:'select * from car'},
+                        success:function(res){
+                          res=JSON.parse(res);
+                          var car_qty=0;
+                          res.map(function(item){
+                            car_qty+=Number(item.qty);
+                          })
+                          sessionStorage.setItem("car_qty", car_qty); 
+                           $('.count').text(car_qty)
+                         }
+                  });
+            })
+          }
+
+        });
       }
 
-    });
-  }
-
-
+    var car_qty = sessionStorage.getItem("car_qty");
+  
+    $('.count').text(car_qty)
 //     var site = localStorage.getItem("site");
- console.log(username);
-   
+    console.log(username);
+
     if(username!=null){
          var tel = username.substr(0, 3) + '*****' + username.substr(8);  
        $('.head_l').html(
@@ -110,6 +132,7 @@ if (eleFlyElement && eleShopCart) {
         sessionStorage.removeItem("key");
 
     })
+    
 
     })
 })

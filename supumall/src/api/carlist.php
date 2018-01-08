@@ -3,9 +3,9 @@
  * @Author: Marte
  * @Date:   2017-12-12 15:24:51
  * @Last Modified by:   Marte
- * @Last Modified time: 2018-01-06 20:05:21
+ * @Last Modified time: 2018-01-08 10:42:13
  */
-        $servername = 'localhost';
+    $servername = 'localhost';
     $username = 'root';
     $password = '';
     $database = 'supumall';
